@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.10+1
+  
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +22,7 @@ flutter:
   assets:
     - assets/images/avatar-profile.png
     - assets/images/gozem-logo.png
+    - assets/images/delivery.png
+    - assets/images/road.svg
+    - assets/images/shopping-cart.svg
+    - assets/images/chevron.svg
