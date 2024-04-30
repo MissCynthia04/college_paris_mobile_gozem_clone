@@ -193,23 +193,54 @@ class Historique extends StatelessWidget {
           ],
         ),
         backgroundColor: const Color.fromARGB(255, 243, 238, 238),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.black,
-          selectedItemColor: Colors.black,
-          unselectedLabelStyle: const TextStyle(color: Colors.black),
-          selectedLabelStyle: const TextStyle(color: Colors.black),
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Accueil"),
-            BottomNavigationBarItem(icon: Icon(Icons.help), label: "Aide"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.location_pin), label: "Adresses"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.access_time), label: "Activités"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined), label: "Compte")
-          ],
+        bottomNavigationBar: CustomBottomNavigationBar(
+          initialIndex: 3,
         ));
+  }
+}
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  int initialIndex;
+  CustomBottomNavigationBar({required this.initialIndex});
+
+  @override
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int currentIndex = 0;
+  @override
+  void initState() {
+    currentIndex = widget.initialIndex;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      onTap: (value) {
+        currentIndex = value;
+        print(value);
+        setState(() {});
+      },
+      unselectedItemColor: Colors.black,
+      selectedItemColor: Colors.green,
+      unselectedLabelStyle: const TextStyle(color: Colors.black),
+      selectedLabelStyle: const TextStyle(color: Colors.black),
+      currentIndex: currentIndex,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Accueil"),
+        BottomNavigationBarItem(icon: Icon(Icons.help), label: "Aide"),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.location_pin), label: "Adresses"),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.access_time_filled), label: "Activités"),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle), label: "Compte")
+      ],
+    );
   }
 }
