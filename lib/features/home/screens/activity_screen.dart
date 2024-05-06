@@ -199,10 +199,9 @@ class Historique extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class CustomBottomNavigationBar extends StatefulWidget {
-  int initialIndex;
-  CustomBottomNavigationBar({super.key, required this.initialIndex});
+  final int initialIndex;
+  const CustomBottomNavigationBar({super.key, required this.initialIndex});
 
   @override
   State<CustomBottomNavigationBar> createState() =>

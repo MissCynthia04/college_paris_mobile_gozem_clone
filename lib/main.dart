@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gozem_clone/features/home/screens/activity_screen.dart';
+import 'package:gozem_clone/features/home/screens/home_screen.dart';
+import 'package:gozem_clone/features/home/users/users_screen.dart';
 //import 'package:gozem_clone/features/home/screens/home_screen.dart';
 
 void main() {
@@ -11,6 +13,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Gozem Clone", home: Historique());
+    return MaterialApp(title: "Gozem Clone", home: UsersScreen());
   }
 }

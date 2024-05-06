@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    counter();
+  }
+
+  void counter() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? counter = prefs.getInt('counter');
+    print(counter);
+    if (counter == null) {
+      counter = 0;
+    }
+    counter++;
+    await prefs.setInt('counter', counter);
+    print(counter);
+  }
 
   @override
   Widget build(BuildContext context) {
